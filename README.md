@@ -1,6 +1,6 @@
 # Metodologia de Diseño Tarea 1
-Integrantes: Gabriel Oneto, Franko Moraga.
-Código hecho en C++.
+Integrantes: Gabriel Oneto, Franko Moraga, Dante Chavez, Nikolas Lagos.
+Código hecho en Python.
 Dependencias:
-- ctime
-- stdio
+- datetime
+- ABS, abstractmethod
