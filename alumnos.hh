@@ -1,23 +1,29 @@
+#pragma once
+#include <iostream>
+#include <ctime>
+#include <sstream>
+#include <string>
+
+
 class Alumnos{
     public:
-        uint rut;
-        string nombre;
-        uint edad;
-        datetime.date fechaNacimiento;
-        datetime.date getFechaNacimiento(Alumnos alumno);
-        Alumnos recuperarPorRut(string rut);
+        int32_t rut;
+        std::string nombre;
+        int32_t year;
+        int32_t month;
+        int32_t day;
+        Alumnos recuperarPorRut(std::string rut);
+        time_t getFechaNacimiento(Alumnos alumno);
         int getEdad(Alumnos alumno);
-        Alumnos crearAlumno(uint day, uint month, uint year, string name, string rut);
+        Alumnos crearAlumno(int day, int month, int year, std::string name, std::string rut);
         void eliminarAlumno(Alumnos alumno);
-        void modificarPorRut(string rut, data dato)
+        template <typename data>
+        void modificarPorRut(std::string rut, data dato);
     private:
-        string getName(Alumnos alumno);
-        string getrut(Alumnos alumno);
-        void setName(string nombre);
-    ☻   void setRut(string rut);
-        void setFechaNacimiento(uint day, uint month, uint year);
-        datetime.year year;
-        datetime.month month;
-        datetime.day day;
-        string getRutFull(uint rut);
-}
+        std::string getName(Alumnos alumno);
+        std::string getrut(Alumnos alumno);
+        void setName(std::string nombre);
+        void setRut(std::string rut);
+        void setFechaNacimiento(int day, int month, int year);
+        std::string getRutFull(int rut);
+};
