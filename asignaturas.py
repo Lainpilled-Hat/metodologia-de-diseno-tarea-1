@@ -1,21 +1,23 @@
 
 import repositorio as rp
-  
-class AsignaturaPregrado(rp.Repositorio):
+from abc import ABC, abstractmethod
+class Asignatura(ABC):
+    @abstractmethod
+    def __init__(self, nombre, codigo, creditos):
+        pass
+class AsignaturaPregrado(Asignatura):
     def __init__(self, nombre, codigo, creditos):
         self.nombre = nombre
         self.codigo = codigo
         self.creditos = creditos
         self.tipo = "Pregrado"
-    def eliminarAsignatura(codigo):
-        pass
-class AsignaturaMagister(rp.Repositorio):
+class AsignaturaMagister(Asignatura):
     def __init__(self, nombre, codigo, creditos):
         self.nombre = nombre
         self.codigo = codigo
         self.creditos = creditos
         self.tipo = "Magister"
-class AsignaturaDoctorado(rp.Repositorio):
+class AsignaturaDoctorado(Asignatura):
     def __init__(self, nombre, codigo, creditos):
         self.nombre = nombre
         self.codigo = codigo

@@ -5,15 +5,6 @@ class Alumnos(ABC):
     @abstractmethod
     def __init__(self, rut, nombre, fecNac):
         pass
-    @abstractmethod
-    def recuperarRut(rut):
-        pass
-    @abstractmethod
-    def eliminarAlumnos(self):
-        pass
-    @abstractmethod
-    def modificarAlumno(self):
-        pass
 class Pregrado(Alumnos):
     @abstractmethod
     def estudiar(self):
@@ -26,6 +17,13 @@ class Postgrado(Alumnos):
     def clases(self):
         pass
 class Ayudante(Pregrado):
+    def __init__(self, rut, nombre, fecNac):
+        self.rut = rut
+        self.nombre = nombre
+        self.fecNac = fecNac
+        self.tipo = "Ayudante"
+    def getRut(self):
+        return self.rut
     @classmethod
     def estudiar(self):
         pass
@@ -47,6 +45,13 @@ class AbstractMagister(Postgrado):
     def clases(self):
         pass
 class Doctorado(AbstractDoctorado, AbstractMagister):
+    def __init__(self, rut, nombre, fecNac):
+        self.rut = rut
+        self.nombre = nombre
+        self.fecNac = fecNac
+        self.tipo = "Doctorado"
+    def getRut(self):
+        return self.rut
     @classmethod
     def estudiarDoc():
         pass
@@ -57,6 +62,13 @@ class Doctorado(AbstractDoctorado, AbstractMagister):
     def investigar():
         pass
 class Magister(AbstractMagister):
+    def __init__(self, rut, nombre, fecNac):
+        self.rut = rut
+        self.nombre = nombre
+        self.fecNac = fecNac
+        self.tipo = "Magister"
+    def getRut(self):
+        return self.rut
     @classmethod
     def estudiarMag():
         pass
@@ -64,6 +76,20 @@ class Magister(AbstractMagister):
     def clases():
         pass
 class Alumni(Alumnos):
-    pass
+    def __init__(self, rut, nombre, fecNac):
+        self.rut = rut
+        self.nombre = nombre
+        self.fecNac = fecNac
+        self.tipo = "Alumni"
+    def getRut(self):
+        return self.rut
 class NoAyudante(Pregrado):
-    pass
+    def __init__(self, rut, nombre, fecNac):
+        self.rut = rut
+        self.nombre = nombre
+        self.fecNac = fecNac
+        self.tipo = "No Ayudante"
+    def getRut(self):
+        return self.rut
+    def estudiar():
+        pass
