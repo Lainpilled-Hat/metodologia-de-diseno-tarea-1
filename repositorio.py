@@ -37,7 +37,7 @@ class Repositorio(AbstractRepositorio):
         return asignatura
     def recuperarAlumno(self, rut):
         alumno = self.alumnos.get(rut)
-        return rut
+        return alumno
     def eliminarPorRut(self, rut):
         alumno = self.alumnos.pop(rut)
         del alumno
