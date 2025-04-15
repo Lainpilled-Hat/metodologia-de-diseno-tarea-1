@@ -1,11 +1,17 @@
 from abc import ABC, abstractmethod
+import datetime as date
 
 class Alumnos(ABC):
-    @abstractmethod
-    def __init__(self, rut, nombre, fecNac, edad):
-        pass
+    def __init__(self, rut, nombre, fecNac):
+        _today = date.today()
+        self.rut = rut
+        self.nombre = nombre
+        self.fecNac = fecNac
+        _fecha = abs(fecNac - _today)
+        self.edad = _fecha.years
+        return self
     def getRut(self):
-        pass
+        return self.rut
 class Pregrado(Alumnos):
     @abstractmethod
     def estudiar(self):
@@ -18,12 +24,10 @@ class Postgrado(Alumnos):
     def clases(self):
         pass
 class Ayudante(Pregrado):
-    def __init__(self, rut, nombre, fecNac, edad):
-        self.rut = rut
-        self.nombre = nombre
-        self.fecNac = fecNac
-        self.edad = edad
+    def __init__(self, rut, nombre, fecNac):
+        self = super().__init__(rut, nombre, fecNac)
         self.tipo = "Ayudante"
+        return self
     @classmethod
     def ayudantia(self):
         pass
@@ -34,14 +38,10 @@ class AbstractDoctorado(Postgrado):
 class AbstractMagister(Postgrado):
         pass
 class Doctorado(AbstractDoctorado, AbstractMagister):
-    def __init__(self, rut, nombre, fecNac, edad):
-        self.rut = rut
-        self.nombre = nombre
-        self.fecNac = fecNac
-        self.edad = edad
+    def __init__(self, rut, nombre, fecNac):
+        self = super().__init__(rut, nombre, fecNac)
         self.tipo = "Doctorado"
-    def getRut(self):
-        return self.rut
+        return self
     @classmethod
     def estudiar(self):
         pass
@@ -52,14 +52,10 @@ class Doctorado(AbstractDoctorado, AbstractMagister):
     def investigar(self):
         pass
 class Magister(AbstractMagister):
-    def __init__(self, rut, nombre, fecNac, edad):
-        self.rut = rut
-        self.nombre = nombre
-        self.fecNac = fecNac
-        self.edad = edad
+    def __init__(self, rut, nombre, fecNac):
+        self = super().__init__(rut, nombre, fecNac)
         self.tipo = "Magister"
-    def getRut(self):
-        return self.rut
+        return self
     @classmethod
     def estudiar(self):
         pass
@@ -67,22 +63,14 @@ class Magister(AbstractMagister):
     def clases(self):
         pass
 class Alumni(Alumnos):
-    def __init__(self, rut, nombre, fecNac, edad):
-        self.rut = rut
-        self.nombre = nombre
-        self.fecNac = fecNac
-        self.edad = edad
+    def __init__(self, rut, nombre, fecNac):
+        self = super().__init__(rut, nombre, fecNac)
         self.tipo = "Alumni"
-    def getRut(self):
-        return self.rut
+        return self
 class NoAyudante(Pregrado):
-    def __init__(self, rut, nombre, fecNac, edad):
-        self.rut = rut
-        self.nombre = nombre
-        self.fecNac = fecNac
-        self.edad = edad
+    def __init__(self, rut, nombre, fecNac):
+        self = super().__init__(rut, nombre, fecNac)
         self.tipo = "No Ayudante"
-    def getRut(self):
-        return self.rut
+        return self
     def estudiar(self):
         pass
