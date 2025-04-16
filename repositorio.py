@@ -29,32 +29,30 @@ class AbstractRepositorio(ABC):
     @abstractmethod
     def nuevaAsignatura(self, asignatura):
         pass
-    @abstractmethod
-    def inscribirAsignatura(self, asignatura, alumno):
-        pass
 class Repositorio(AbstractRepositorio):
     def __init__(self):
         self.repoAlumnos = {}
         self.repoAsignaturas = {}
-        return self
     def nuevoAlumno(self, alumno):
-        self.repoAlumnos[alumno.getRut() : alumno]
-        return self
+        rut = alumno.getRut()
+        self.repoAlumnos.update({rut : alumno})
     def nuevaAsignatura(self, asignatura):
-        self.repoAsignaturas[asignatura.getCodigo() : asignatura]
-        return self
+        codigo = asignatura.getCodigo()
+        self.repoAsignaturas.update({codigo: asignatura})
     def recuperarAsignatura(self, codigo):
         asignatura = self.repoAsignaturas.get(codigo)
         return asignatura
-    def recuperarAlumno(self, rut):
-        alumno = self.repoAsignaturas.get(rut)
+    def modificarPorRut(self, rut):
+        pass
+    def modificarAsignatura(self, codigo):
+        pass   
+    def recuperarPorRut(self, rut):
+        alumno = self.repoAlumnos.get(rut)
         return alumno
     def eliminarPorRut(self, rut):
         alumno = self.repoAlumnos.pop(rut)
         del alumno
-        return self
     def eliminarAsignatura(self, codigo):
         asignatura = self.repoAsignaturas.pop(codigo)
         del asignatura
-        return self
     

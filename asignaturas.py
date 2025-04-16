@@ -6,22 +6,18 @@ class Asignatura(ABC):
         self.nombre = nombre
         self.codigo = codigo
         self.creditos = creditos
-        return self
     def getCodigo(self):
         return self.codigo
 
 class AsignaturaPregrado(Asignatura):
+    tipo = "Pregrado"
     def __init__(self, nombre, codigo, creditos):
-        self = super._init__(self,nombre, codigo, creditos)
-        self.tipo = "Pregrado"
-        return self
+        super._init__(self,nombre, codigo, creditos)
 class AsignaturaMagister(Asignatura):
+    tipo = "Magister"
     def __init__(self, nombre, codigo, creditos):
-        self = super._init__(self,nombre, codigo, creditos)
-        self.tipo = "Magister"
-        return self
+        super._init__(self,nombre, codigo, creditos)
 class AsignaturaDoctorado(Asignatura):
+    tipo = "Doctorado"
     def __init__(self, nombre, codigo, creditos):
-        self = super._init__(self,nombre, codigo, creditos)
-        self.tipo = "Doctorado"
-        return self
+        super._init__(self,nombre, codigo, creditos)
