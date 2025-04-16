@@ -15,7 +15,7 @@ class Alumnos(ABC):
         return self.nombre
 class Pregrado(Alumnos):
     def __init__(self, rut, nombre, fecNac, asignaturas = None):
-        self = super().__init__(rut, nombre, fecNac)
+        super().__init__(rut, nombre, fecNac, None)
         self.asignaturas = tuple()
     def estudiar(self, codigo):
         pass
@@ -37,7 +37,7 @@ class Postgrado(Alumnos):
 class Ayudante(Pregrado):
     tipo = "Ayudante"
     def __init__(self, rut, nombre, fecNac):
-        super().__init__(rut, nombre, fecNac)
+        super().__init__(rut, nombre, fecNac, None)
     def ayudantia(self):
         pass
 class AbstractDoctorado(Postgrado):
@@ -76,8 +76,8 @@ class Magister(AbstractMagister):
 class Alumni(Alumnos):
     tipo = "Alumni"
     def __init__(self, rut, nombre, fecNac):
-        super().__init__(rut, nombre, fecNac)
+        super().__init__(rut, nombre, fecNac, None)
 class NoAyudante(Pregrado):
     tipo = "No Ayudante"
     def __init__(self, rut, nombre, fecNac):
-        super().__init__(rut, nombre, fecNac)
+        super().__init__(rut, nombre, fecNac, None)
