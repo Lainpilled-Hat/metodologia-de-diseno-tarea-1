@@ -1,5 +1,5 @@
 # Metodologia de Diseño Tarea 1
-Integrantes: Gabriel Oneto, Franko Moraga, Dante Chavez, Nikolas Lagos.
+Integrantes: Gabriel Oneto, Franko Moraga.
 Código hecho en Python.
 
 
